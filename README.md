@@ -1,7 +1,3 @@
-# software_engineering
-Sistema de gerenciamento de tarefas para a TechFlow Solutions utilizando metodologias ágeis
-
-
 # TechFlow Solutions - Sistema de Gerenciamento de Tarefas
 
 ## 📌 Objetivo do Projeto
@@ -21,7 +17,7 @@ O fluxo de trabalho foi dividido e organizado na aba *Projects* deste repositór
 - **CI/CD:** GitHub Actions (Pipeline para execução de testes automatizados)
 
 ## 🚀 Como executar o sistema
-1. Clone o repositório: `git clone https://github.com/josuecoxa/TechFlow-Task-Manager.git`
+1. Clone o repositório: `git clone https://github.com/josuecoxa/software_engineering.git`
 2. Abra o projeto na sua IDE (IntelliJ IDEA).
 3. Aguarde o download das dependências (Maven/Gradle).
 4. Execute a classe `Main` (ou `Application`, se usar Spring Boot).
