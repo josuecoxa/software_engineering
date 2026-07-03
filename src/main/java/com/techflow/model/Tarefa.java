@@ -4,9 +4,9 @@ public class Tarefa {
     private Long id;
     private String titulo;
     private String descricao;
-    private String status; // Exemplos: "To Do", "In Progress", "Done"
+    private String status;
 
-    // Construtor Completo
+
     public Tarefa(Long id, String titulo, String descricao, String status) {
         this.id = id;
         this.titulo = titulo;
@@ -14,7 +14,7 @@ public class Tarefa {
         this.status = status;
     }
 
-    // Getters e Setters
+
     public Long getId() {
         return id;
     }
@@ -47,7 +47,7 @@ public class Tarefa {
         this.status = status;
     }
 
-    // Método para exibição limpa no console
+
     @Override
     public String toString() {
         return "Tarefa{" +
