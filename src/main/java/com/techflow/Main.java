@@ -33,7 +33,9 @@ public class Main {
                     String titulo = scanner.nextLine();
                     System.out.print("Digite a descrição da tarefa: ");
                     String descricao = scanner.nextLine();
-                    Tarefa nova = service.criarTarefa(titulo, descricao);
+                    System.out.print("Digite a prioridade da tarefa (Alta / Media / Baixa): ");
+                    String prioridade = scanner.nextLine();
+                    Tarefa nova = service.criarTarefa(titulo, descricao, prioridade);
                     System.out.println("Sucesso! Tarefa criada: " + nova);
                     break;
                 case 2:
@@ -42,7 +44,7 @@ public class Main {
                         System.out.println("Nenhuma tarefa cadastrada.");
                     } else {
                         for (Tarefa t : service.listarTodas()) {
-                            System.out.println("ID: " + t.getId() + " | " + t.getTitulo() + " [" + t.getStatus() + "] - " + t.getDescricao());
+                            System.out.println("ID: " + t.getId() + " | " + t.getTitulo() + " [" + t.getStatus() + "] | Prioridade: " + t.getPrioridade() + " - " + t.getDescricao());
                         }
                     }
                     break;
