@@ -54,16 +54,16 @@ public class Main {
                     System.out.print("Digite o novo status (To Do / In Progress / Done): ");
                     String novoStatus = scanner.nextLine();
                     if (service.atualizarStatus(idAtualizar, novoStatus)) {
-                        System.out.println("Status atualizado com sucesso!");
+                        System.out.println("Status updated.");
                     } else {
-                        System.out.println("Tarefa com ID " + idAtualizar + " não encontrada.");
+                        System.out.println("Tarefa não encontrada.");
                     }
                     break;
                 case 4:
                     System.out.print("Digite o ID da tarefa que deseja excluir: ");
                     Long idExcluir = Long.parseLong(scanner.nextLine());
                     if (service.excluirTarefa(idExcluir)) {
-                        System.out.println("Tarefa excluída com sucesso!");
+                        System.out.println("Tarefa excluída.");
                     } else {
                         System.out.println("Tarefa não encontrada.");
                     }

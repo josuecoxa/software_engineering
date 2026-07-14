@@ -1,52 +1,35 @@
 package com.techflow.service;
 
 import com.techflow.model.Tarefa;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
 import java.util.List;
 
-public class TarefaServiceTest {
+public class TarefaService {
+    private List<Tarefa> listaTarefas = new ArrayList<>();
+    private Long proximoId = 1L;
 
-    private TarefaService service;
-
-    @BeforeEach
-    public void setUp() {
-        service = new TarefaService();
+    public Tarefa criarTarefa(String titulo, String descricao, String prioridade) {
+        Tarefa novaTarefa = new Tarefa(proximoId, titulo, descricao, "To Do", prioridade);
+        listaTarefas.add(novaTarefa);
+        proximoId++;
+        return novaTarefa;
     }
 
-    @Test
-    public void testCriarTarefa() {
-        Tarefa tarefa = service.criarTarefa("Testar Sistema", "Descricao do teste", "Alta");
-        assertNotNull(tarefa);
-        assertEquals(1L, tarefa.getId());
-        assertEquals("Testar Sistema", tarefa.getTitulo());
-        assertEquals("To Do", tarefa.getStatus());
-        assertEquals("Alta", tarefa.getPrioridade());
+    public List<Tarefa> listarTodas() {
+        return new ArrayList<>(listaTarefas);
     }
 
-    @Test
-    public void testListarTodas() {
-        service.criarTarefa("Tarefa 1", "Descricao 1", "Media");
-        service.criarTarefa("Tarefa 2", "Descricao 2", "Baixa");
-        List<Tarefa> lista = service.listarTodas();
-        assertEquals(2, lista.size());
+    public boolean atualizarStatus(Long id, String novoStatus) {
+        for (Tarefa tarefa : listaTarefas) {
+            if (tarefa.getId().equals(id)) {
+                tarefa.setStatus(novoStatus);
+                return true;
+            }
+        }
+        return false;
     }
 
-    @Test
-    public void testAtualizarStatus() {
-        Tarefa tarefa = service.criarTarefa("Tarefa", "Descricao", "Baixa");
-        boolean atualizado = service.atualizarStatus(tarefa.getId(), "In Progress");
-        assertTrue(atualizado);
-        List<Tarefa> lista = service.listarTodas();
-        assertEquals("In Progress", lista.get(0).getStatus());
-    }
-
-    @Test
-    public void testExcluirTarefa() {
-        Tarefa tarefa = service.criarTarefa("Tarefa", "Descricao", "Alta");
-        boolean excluido = service.excluirTarefa(tarefa.getId());
-        assertTrue(excluido);
-        assertTrue(service.listarTodas().isEmpty());
+    public boolean excluirTarefa(Long id) {
+        return listaTarefas.removeIf(tarefa -> tarefa.getId().equals(id));
     }
 }

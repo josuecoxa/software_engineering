@@ -5,15 +5,15 @@ public class Tarefa {
     private String titulo;
     private String descricao;
     private String status;
+    private String prioridade;
 
-
-    public Tarefa(Long id, String titulo, String descricao, String status) {
+    public Tarefa(Long id, String titulo, String descricao, String status, String prioridade) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.status = status;
+        this.prioridade = prioridade;
     }
-
 
     public Long getId() {
         return id;
@@ -47,6 +47,13 @@ public class Tarefa {
         this.status = status;
     }
 
+    public String getPrioridade() {
+        return prioridade;
+    }
+
+    public void setPrioridade(String prioridade) {
+        this.prioridade = prioridade;
+    }
 
     @Override
     public String toString() {
@@ -54,6 +61,7 @@ public class Tarefa {
                 "id=" + id +
                 ", titulo='" + titulo + '\'' +
                 ", status='" + status + '\'' +
+                ", prioridade='" + prioridade + '\'' +
                 '}';
     }
 }
